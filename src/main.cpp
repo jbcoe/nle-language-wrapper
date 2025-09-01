@@ -19,13 +19,13 @@
 #include <unordered_map>
 #include <vector>
 
-#include "include/display.h"
+#include "display.h"
 
 // "digit" is declared in both Python's longintrepr.h and NetHack's extern.h.
 #define digit nethack_digit
 
 extern "C" {
-#include "include/hack.h"
+#include "hack.h"
 }
 
 namespace py = pybind11;
