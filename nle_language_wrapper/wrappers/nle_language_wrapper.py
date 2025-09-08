@@ -1,4 +1,3 @@
-import gym
 from gym import Wrapper
 from gym import spaces
 from nle.env import NLE
