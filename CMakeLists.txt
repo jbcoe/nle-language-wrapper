@@ -6,7 +6,21 @@ message(STATUS "Building nle_language_wrapper backend")
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-add_compile_definitions(
+include(FetchContent)
+FetchContent_Declare(
+  nle
+  GIT_REPOSITORY https://github.com/NetHack-LE/nle.git
+  GIT_TAG v1.2.0)
+FetchContent_MakeAvailable(nle)
+find_package(pybind11 CONFIG REQUIRED)
+
+pybind11_add_module(
+  nle_language_obsv
+  src/main.cpp )
+
+target_compile_definitions(
+  nle_language_obsv
+  PRIVATE
   GCC_WARN
   NOCLIPPING
   NOMAIL
@@ -15,36 +29,22 @@ add_compile_definitions(
   DLB
   NOCWD_ASSUMPTIONS)
 
-set(CMAKE_CXX_FLAGS "-O3 -Wall -Wextra")
+target_compile_options(
+  nle_language_obsv 
+  PRIVATE -O3 -Wall -Wextra)
 
-set(NLE_BASE ${PYTHON_SRC_PARENT}/nle/nle)
-set(NLE_INC ${PYTHON_SRC_PARENT}/nle/)
+set_target_properties(
+  nle_language_obsv 
+  PROPERTIES 
+  CXX_STANDARD 17 
+  POSITION_INDEPENDENT_CODE ON
+  # Add relative rpath to enable finding the nethack shared library.
+  LINK_FLAGS "-Wl,-rpath,'$ORIGIN'")
 
-file(GLOB_RECURSE PM_H_PATH "./nle/build/pm.h")
-if(PM_H_PATH)
-  list(GET PM_H_PATH 0 PM_H_PATH_FIRST)
-  get_filename_component(NLE_INC_GEN ${PM_H_PATH_FIRST} DIRECTORY)
-else()
-  set(NLE_INC_GEN "")
-endif()
-
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/nle)
-pybind11_add_module(
-  nle_language_obsv
-  src/main.cpp )
-
-add_dependencies(nle_language_obsv nethack)
-
-set_target_properties(nle_language_obsv PROPERTIES CXX_STANDARD 17)
-target_link_directories(nle_language_obsv PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/nle/build)
-target_include_directories(nle_language_obsv PUBLIC ${NLE_INC})
-target_include_directories(nle_language_obsv PUBLIC ${NLE_INC_GEN})
-target_include_directories(nle_language_obsv PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/nle/include)
-target_include_directories(nle_language_obsv PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/nle/build)
-target_link_libraries(nle_language_obsv PUBLIC nethack)
-
-# Add relative rpath to enable finding the nethack shared library.
-set_target_properties(nle_language_obsv PROPERTIES LINK_FLAGS "-Wl,-rpath,'$ORIGIN'")
+target_link_libraries(
+  nle_language_obsv 
+  PUBLIC 
+  nethack)
 
 install(TARGETS nle_language_obsv nethack
         LIBRARY DESTINATION nle_language_wrapper)
