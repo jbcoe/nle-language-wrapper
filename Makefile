@@ -14,7 +14,7 @@ format-cpp:
 format-python-check:
 	isort -c --diff nle_language_wrapper
 	black --check --diff nle_language_wrapper
-	pylint setup.py \
+	pylint \
 		nle_language_wrapper/agents/ \
 		nle_language_wrapper/wrappers/ \
 		nle_language_wrapper/scripts/ \
