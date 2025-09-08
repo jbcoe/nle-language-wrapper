@@ -5,15 +5,15 @@
 .PHONY: test
 
 format-python:
-	isort setup.py nle_language_wrapper
-	black setup.py nle_language_wrapper --config pyproject.toml
+	isort nle_language_wrapper
+	black nle_language_wrapper --config pyproject.toml
 
 format-cpp:
 	clang-format -style=Google -i src/main.cpp
 
 format-python-check:
-	isort -c --diff setup.py nle_language_wrapper
-	black --check --diff setup.py nle_language_wrapper
+	isort -c --diff nle_language_wrapper
+	black --check --diff nle_language_wrapper
 	pylint setup.py \
 		nle_language_wrapper/agents/ \
 		nle_language_wrapper/wrappers/ \

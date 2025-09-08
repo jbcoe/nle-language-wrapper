@@ -6,6 +6,7 @@ from nle.nethack import actions as nethack_actions
 
 from nle_language_wrapper.nle_language_obsv import NLELanguageObsv
 
+
 class NLELanguageWrapper(Wrapper):
     @property
     def spec(self):
@@ -232,7 +233,9 @@ class NLELanguageWrapper(Wrapper):
             use_language_action(bool): Use language action or discrete integer actions
         """
         super().__init__(env)
-        assert isinstance(env, NLE), f"Only NLE environments are supported {env} {type(env)}"
+        assert isinstance(
+            env, NLE
+        ), f"Only NLE environments are supported {env} {type(env)}"
         missing_obsv_keys = self.REQUIRED_NLE_OBSV_KEYS.difference(
             env.observation_space.spaces.keys()
         )
