@@ -42,5 +42,9 @@ target_include_directories(nle_language_obsv PUBLIC ${NLE_INC_GEN})
 target_include_directories(nle_language_obsv PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/nle/include)
 target_include_directories(nle_language_obsv PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/nle/build)
 target_link_libraries(nle_language_obsv PUBLIC nethack)
+
 # Add relative rpath to enable finding the nethack shared library.
 set_target_properties(nle_language_obsv PROPERTIES LINK_FLAGS "-Wl,-rpath,'$ORIGIN'")
+
+install(TARGETS nle_language_obsv nethack
+        LIBRARY DESTINATION nle_language_wrapper)
