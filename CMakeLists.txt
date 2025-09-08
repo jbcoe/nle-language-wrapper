@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 project(nethack_language_wrapper)
+cmake_policy(SET CMP0148 OLD)
 
 message(STATUS "Building nle_language_wrapper backend")
 
@@ -28,7 +29,6 @@ else()
 endif()
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/nle)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/pybind11)
 pybind11_add_module(
   nle_language_obsv
   src/main.cpp )

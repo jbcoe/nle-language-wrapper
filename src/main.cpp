@@ -5,6 +5,7 @@
 #include <pybind11/pybind11.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <cstdint>
 
 #include <array>
 #include <cassert>
