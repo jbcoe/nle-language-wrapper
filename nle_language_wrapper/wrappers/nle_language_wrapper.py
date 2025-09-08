@@ -1,6 +1,6 @@
-import gymnasium as gym
-from gymnasium import Wrapper
-from gymnasium import spaces
+import gym
+from gym import Wrapper
+from gym import spaces
 from nle.env import NLE
 from nle.nethack import actions as nethack_actions
 

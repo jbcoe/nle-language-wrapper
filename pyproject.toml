@@ -22,7 +22,7 @@ classifiers=[
 dependencies = [
     "nle==1.2.0",
     "minihack>=0.1.4",
-    "gymnasium>=1.0.0",
+    "gym>=0.15,<=0.23",
 ]
 
 [project.license]
