@@ -1,4 +1,4 @@
-import gym
+import gymnasium as gym
 import minihack  # pylint: disable=unused-import
 import nle  # pylint: disable=unused-import
 from minihack.scripts.env_list import skip_envs_list

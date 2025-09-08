@@ -20,11 +20,9 @@ classifiers=[
     "Topic :: Games/Entertainment",
 ]
 dependencies = [
-    "pybind11>=2.9",
-    "gym>=0.15,<=0.23",
     "nle==1.2.0",
     "minihack>=0.1.4",
-    "gym-minigrid==1.1.0",
+    "gymnasium>=1.0.0",
 ]
 
 [project.license]
