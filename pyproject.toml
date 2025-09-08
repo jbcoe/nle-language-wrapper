@@ -5,7 +5,6 @@ description = "Language Wrapper for the NetHack Learning Environment (NLE)"
 authors = [{ name = "Nikolaj Goodger", email = "ngoodger@example.com" }]
 readme = "README.md"
 keywords = ["nle", "language", "wrapper"]
-requires-python = "==3.10.*"
 classifiers=[
     "License :: OSI Approved :: MIT License",
     "Development Status :: 2 - Pre-Alpha",
