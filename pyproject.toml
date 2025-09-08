@@ -1,17 +1,17 @@
 [project]
 name = "nle-language-wrapper"
-version = "0.2.0"
+version = "1.0.0a"
 description = "Language Wrapper for the NetHack Learning Environment (NLE)"
 authors = [{ name = "Nikolaj Goodger", email = "ngoodger@example.com" }]
 readme = "README.md"
 keywords = ["nle", "language", "wrapper"]
+requires-python = ">=3.8"
 classifiers=[
     "License :: OSI Approved :: MIT License",
     "Development Status :: 2 - Pre-Alpha",
     "Operating System :: POSIX :: Linux",
     "Operating System :: MacOS",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
