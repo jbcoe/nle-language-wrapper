@@ -22,7 +22,7 @@ set(NLE_INC ${PYTHON_SRC_PARENT}/nle/)
 file(GLOB_RECURSE PM_H_PATH "./nle/build" pm.h)
 get_filename_component(NLE_INC_GEN ${PM_H_PATH} DIRECTORY)
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/pybind11)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/nle)
 pybind11_add_module(
   nle_language_obsv
   src/main.cpp )
