@@ -1,7 +1,7 @@
-import gymnasium as gym
+import gym
 import numpy as np
 import pytest
-from gymnasium import spaces
+from gym import spaces
 from nle.env import NLE
 from nle.nethack import actions as nethack_actions
 

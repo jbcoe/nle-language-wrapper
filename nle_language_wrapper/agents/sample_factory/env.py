@@ -1,6 +1,6 @@
 from functools import lru_cache
 
-import gymnasium as gym
+import gym
 import numpy as np
 import torch
 from sample_factory.envs.env_registry import global_env_registry

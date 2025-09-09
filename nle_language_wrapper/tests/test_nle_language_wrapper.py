@@ -1,6 +1,6 @@
 import timeit
 
-import gymnasium as gym
+import gym
 import numpy as np
 import pytest
 from nle.nethack import actions as nethack_actions
