@@ -9,8 +9,8 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 include(FetchContent)
 FetchContent_Declare(
   nle
-  GIT_REPOSITORY https://github.com/jbcoe/nle-nethack.git
-  GIT_TAG 88a8da68dbd95e55ae6dbdd2fd2f1810bbad8207)
+  GIT_REPOSITORY https://github.com/NetHack-LE/nle.git
+  GIT_TAG v1.2.0)
 FetchContent_MakeAvailable(nle)
 find_package(pybind11 CONFIG REQUIRED)
 
@@ -34,17 +34,17 @@ target_compile_options(
   PRIVATE -O3 -Wall -Wextra)
 
 set_target_properties(
-  nle_language_obsv 
-  PROPERTIES 
-  CXX_STANDARD 17 
+  nle_language_obsv
+  PROPERTIES
+  CXX_STANDARD 17
   POSITION_INDEPENDENT_CODE ON
-  # Add relative rpath to enable finding the nethack shared library.
-  LINK_FLAGS "-Wl,-rpath,'$ORIGIN'")
+  # Add relative rpath to enable finding the nethack shared library in site_packages/nle.
+  LINK_FLAGS "-Wl,-rpath,'$ORIGIN/../nle'")
 
 target_link_libraries(
   nle_language_obsv 
   PUBLIC 
   nethack)
 
-install(TARGETS nle_language_obsv nethack
-        LIBRARY DESTINATION nle_language_wrapper)
+install(TARGETS nle_language_obsv
+  LIBRARY DESTINATION nle_language_wrapper)
