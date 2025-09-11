@@ -20,7 +20,7 @@ classifiers=[
     "Topic :: Games/Entertainment",
 ]
 dependencies = [
-    "nle==1.2.0",
+    "nle @ git+https://github.com/jbcoe/nle-nethack.git@88a8da68dbd95e55ae6dbdd2fd2f1810bbad8207",
     "minihack>=0.1.4",
     "gym>=0.15,<=0.23",
 ]

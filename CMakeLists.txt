@@ -9,8 +9,8 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 include(FetchContent)
 FetchContent_Declare(
   nle
-  GIT_REPOSITORY https://github.com/NetHack-LE/nle.git
-  GIT_TAG v1.2.0)
+  GIT_REPOSITORY https://github.com/jbcoe/nle-nethack.git
+  GIT_TAG 88a8da68dbd95e55ae6dbdd2fd2f1810bbad8207)
 FetchContent_MakeAvailable(nle)
 find_package(pybind11 CONFIG REQUIRED)
 
